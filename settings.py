@@ -161,6 +161,8 @@ STATICFILES_FINDERS = (
 # a mode you'd pass directly to os.chmod.
 FILE_UPLOAD_PERMISSIONS = 0o644
 
+LAYOUT_APP = ()
+
 
 #############
 # DATABASES #
@@ -360,6 +362,9 @@ try:
     from local_settings import *
 except ImportError:
     pass
+
+
+INSTALLED_APPS = LAYOUT_APP + INSTALLED_APPS
 
 
 ####################
