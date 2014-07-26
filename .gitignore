@@ -54,6 +54,7 @@ docs/_build/
 
 # Campanha
 local_settings.py
+test_settings.py
 /static
 *.db
 
