@@ -1,4 +1,9 @@
 from __future__ import absolute_import, unicode_literals
+from os import environ
+
+
+CURRENT_SITE = environ.get('CURRENT_SITE', 'default')
+
 
 ######################
 # MEZZANINE SETTINGS #
@@ -229,12 +234,17 @@ ROOT_URLCONF = "%s.urls" % PROJECT_DIRNAME
 # or "C:/www/django/templates".
 # Always use forward slashes, even on Windows.
 # Don't forget to use absolute paths, not relative paths.
-TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "templates"),)
+TEMPLATE_DIRS = (
+    os.path.join(PROJECT_ROOT, 'layouts', CURRENT_SITE, 'templates'),
+    os.path.join(PROJECT_ROOT, "templates"),
+)
 
 
 ################
 # APPLICATIONS #
 ################
+
+LAYOUT_APP = 'layouts.{}'.format(CURRENT_SITE)
 
 INSTALLED_APPS = (
     "django.contrib.admin",
@@ -257,6 +267,7 @@ INSTALLED_APPS = (
     "django_nose",
     #"mezzanine.accounts",
     #"mezzanine.mobile",
+    LAYOUT_APP,
 )
 
 # List of processors used by RequestContext to populate the context.
@@ -362,9 +373,6 @@ try:
     from local_settings import *
 except ImportError:
     pass
-
-
-INSTALLED_APPS = LAYOUT_APP + INSTALLED_APPS
 
 
 ####################

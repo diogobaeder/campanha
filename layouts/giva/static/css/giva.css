@@ -1,0 +1,13 @@
+.navbar-brand {
+    background: url(../img/logo-giva.png) no-repeat;
+    width: 185px;
+    text-indent: -10000em;
+}
+
+.navbar-text {
+    background: url(../img/logo-fe.png) no-repeat;
+    text-indent: -10000em;
+    width: 168px;
+    height: 28px;
+    margin: 18px 10px 0 10px;
+}
